@@ -1,1 +1,33 @@
 
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+    <button id="btn">Click me</button>		
+
+
+		<script>
+			function delayedFunc (callback) {
+          var flag;
+          return function() {
+            if(!flag) {
+              flag = true;
+              callback(event);
+              setTimeout(function() {
+                flag = false;
+              }, 10*1000);
+            }
+          };
+        }
+
+        document.getElementById('btn').addEventListener('click', delayedFunc(function(event){
+          // 
+          console.log('do something');
+          alert('');
+}));
+			
+		</script>
+	</body>
+</html>
